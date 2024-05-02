@@ -1,5 +1,4 @@
 <?php
-
 class AdminDB extends Admin
 {
 
