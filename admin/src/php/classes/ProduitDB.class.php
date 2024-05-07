@@ -1,6 +1,6 @@
 <?php
 
-class ClientDB extends Client
+class ProduitDB extends Produit
 {
     private $_bd;
     private $_array = array();
@@ -10,15 +10,16 @@ class ClientDB extends Client
         $this->_bd = $cnx;
     }
 
-    public function ajout_client($nom_cli, $prenom_cli, $tel_cli, $adresse_cli)
+    public function ajout_produit($nom_prod, $descr_prod, $prix, $id_marque, $id_cat)
     {
         try {
-            $query = "select ajout_client(:nom_cli,:prenom_cli,:tel_cli,:adresse_cli)";
+            $query = "select ajout_produit(:nom_prod,:descr_prod,:prix,:id_marque, :id_cat)";
             $res = $this->_bd->prepare($query);
-            $res->bindValue(':nom_cli', $nom_cli);
-            $res->bindValue(':prenom_cli', $prenom_cli);
-            $res->bindValue(':tel_cli', $tel_cli);
-            $res->bindValue(':adresse_cli', $adresse_cli);
+            $res->bindValue(':nom_prod', $nom_prod);
+            $res->bindValue(':descr_prod', $descr_prod);
+            $res->bindValue(':prix', $prix);
+            $res->bindValue(':id_marque', $id_marque);
+            $res->bindValue(':id_cat', $id_cat);
             $res->execute();
             $data = $res->fetch();
             return $data;
@@ -27,12 +28,12 @@ class ClientDB extends Client
         }
     }
 
-    public function getClientByTel($tel_cli)
+    public function getProduitByID($id_produit)
     {
         try {
-            $query = "select * from client where tel_cli = :tel_cli";
+            $query = "select * from produit where id_produit = :id_produit";
             $res = $this->_bd->prepare($query);
-            $res->bindValue(':tel_cli', $tel_cli);
+            $res->bindValue(':id_produit', $id_produit);
             $res->execute();
             $data = $res->fetch();
             return $data;
@@ -41,17 +42,17 @@ class ClientDB extends Client
         }
     }
 
-    public function getAllClients()
+    public function getAllProduits()
     {
         try {
-            $query = "select * from client order by nom_cli";
+            $query = "select * from produit order by id_produit";
             $res = $this->_bd->prepare($query);
             $res->execute();
             $data = $res->fetchAll();
             $_array = []; // Initialisez toujours $_array comme tableau vide
             if (!empty($data)) {
                 foreach ($data as $d) {
-                    $_array[] = new Client($d);
+                    $_array[] = new Produit($d);
                 }
             }
             return $_array;  // Retournez toujours un tableau, jamais null
@@ -61,10 +62,9 @@ class ClientDB extends Client
         }
     }
 
-    public function updateClient($id, $champ, $valeur)
+    public function updateProduit($id, $champ, $valeur)
     {
-        //$query="select update_client(:id,:champ,:valeur)";
-        $query = "update client set $champ='$valeur' where id_client=$id";
+        $query = "update produit set $champ='$valeur' where id_produit=$id";
         try {
             //$this->_bd->beginTransaction();
             $res = $this->_bd->prepare($query);
@@ -79,9 +79,9 @@ class ClientDB extends Client
         }
     }
 
-    public function deleteClient($id)
+    public function deleteProduit($id)
     {
-        $query = "select delete_client(:id)";
+        $query = "select delete_produit(:id)";
         try {
             $this->_bd->beginTransaction();
             $res = $this->_bd->prepare($query);

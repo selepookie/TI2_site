@@ -1,29 +1,16 @@
-<script src="admin/public/css/accueil.css"></script>
-<h2>Bienvenue chez MU Pro.</h2>
+<link rel="stylesheet" href="C:\xampp\htdocs\techinternet2\TI2_site\admin\public\css\tout.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<div class="toutout">
+<div class="titre"><h2>Bienvenue chez MU Pro.</h2></div>
 <h4>Vous trouverez des produits de beauté en tout genre.</h4>
-<div id="carouselExampleIndicators" class="carousel slide">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item">
-            <img src="https://i.pinimg.com/564x/ee/f7/2b/eef72b4329794079e08019e1a714ae84.jpg" class="d-block w-100" alt="..." style="size: 20px">
-        </div>
-        <div class="carousel-item">
-            <img src="https://i.pinimg.com/564x/68/d8/77/68d87770b1d119a4618eb5858dbefbe1.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="https://i.pinimg.com/564x/b9/f8/8a/b9f88ad3b62cc9d0aacc8c91a8abede6.jpg" class="d-block w-100" alt="...">
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/736x/4f/9f/bf/4f9fbf0128a80ebab6ef844439599793.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+
 </div>

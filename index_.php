@@ -9,7 +9,7 @@ require './admin/src/php/utils/liste_includes.php';
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="./admin/public/css/style.css" type="text/css">
+    <link rel="stylesheet" href="./admin/public/css/tout.css" type="text/css">
     <link rel="stylesheet" href="./admin/public/css/custom.css" type="text/css">
     <script src="./admin/public/js/fonctions.js"></script>
 </head>
@@ -18,9 +18,15 @@ require './admin/src/php/utils/liste_includes.php';
     <header id="header">
     </header>
 
+    <style>
+        background-image: url('https://i.pinimg.com/736x/4f/9f/bf/4f9fbf0128a80ebab6ef844439599793.jpg');
+        background-size: cover;
+        background-position: center;
+    </style>
+    <div id="tout">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand">MU pro</a>
+            <a class="navbar-brand">Make-Up</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#combinedNavbar"
                     aria-controls="combinedNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,6 +53,8 @@ require './admin/src/php/utils/liste_includes.php';
         </div>
     </nav>
 
+
+
     <div id="contenu">
         <?php
         //si aucune variable de session 'page'
@@ -65,6 +73,7 @@ require './admin/src/php/utils/liste_includes.php';
         ?>
     </div>
     <footer id="footer">&nbsp;</footer>
+</div>
 </div>
 </body>
 
