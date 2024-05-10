@@ -2,24 +2,22 @@
 <div class="container">
     <form id="form_ajout" method="get" action="">
         <div class="mb-3">
-            <label for="nom" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="nom" name="nom">
+            <label for="nom_cli" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom_cli" name="nom_cli">
         </div>
         <div class="mb-3">
-            <label for="prenom" class="form-label">Prénom</label>
-            <input type="text" class="form-control" id="prenom" name="prenom">
+            <label for="prenom_cli" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="prenom_cli" name="prenom_cli">
         </div>
         <div class="mb-3">
-            <label for="adresse" class="form-label">Adresse</label>
-            <input type="text" class="form-control" id="adresse" name="adresse">
+            <label for="tel_cli" class="form-label">Tel</label>
+            <input type="text" class="form-control" id="tel_cli" name="tel_cli">
         </div>
         <div class="mb-3">
-            <label for="tel" class="form-label">Tel</label>
-            <input type="text" class="form-control" id="tel" name="tel">
+            <label for="adresse_cli" class="form-label">Adresse</label>
+            <input type="text" class="form-control" id="adresse_cli" name="adresse_cli">
         </div>
-        <button type="submit" id="texte_bouton_submit" class="btn btn-primary">
-            Ajouter ou Modifier
-        </button>
+        <button type="submit" id="submit_btn" class="btn btn-primary">Ajouter </button>
         <button class="btn btn-primary" type="reset" id="reset">Annuler</button>
     </form>
 </div>

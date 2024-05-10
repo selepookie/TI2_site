@@ -12,6 +12,13 @@ if ($nbr == 0) {
     print "<br>Aucun client encodé<br>";
 } else {
     ?>
+
+        <style>
+            img{
+                width:20px;
+                size:auto;
+            }
+        </style>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -20,6 +27,7 @@ if ($nbr == 0) {
             <th scope="col">Prénom</th>
             <th scope="col">Téléphone</th>
             <th scope="col">Adresse</th>
+           <th scope="col">Modifier</th>
             <th scope="col">Supprimer</th>
         </tr>
         </thead>
@@ -30,14 +38,15 @@ if ($nbr == 0) {
             <tr>
                 <th><?= $liste[$i]->id_client; ?></th>
                 <td contenteditable="true" id="<?= $liste[$i]->id_client; ?>"
-                    name="nom_client"><?= $liste[$i]->nom_client; ?></td>
+                    name="nom_client"><?= $liste[$i]->nom_cli; ?></td>
                 <td contenteditable="true" id="<?= $liste[$i]->id_client; ?>"
-                    name="prenom_client"><?= $liste[$i]->prenom_client; ?></td>
+                    name="prenom_client"><?= $liste[$i]->prenom_cli; ?></td>
                 <td contenteditable="true" id="<?= $liste[$i]->id_client; ?>"
                     name="tel_cli"><?= $liste[$i]->tel_cli; ?></td>
                 <td contenteditable="true" id="<?= $liste[$i]->id_client; ?>"
                     name="adresse"><?= $liste[$i]->adresse_cli; ?></td>
-                <td contenteditable="true"><img src="public/images/delete.jpg" alt="Effacer" id="delete"></td>
+                <td> <a href="index_.php?page=modifier_client.php&id=<?= $liste[$i]->id_client;?>"><img src="public/images/edit.png" alt="Modifier" ></a></td>
+                <td><a href="index_.php?page=delete_client.php&id=<?= $liste[$i]->id_client;?>"><img src="public/images/remove.png" alt="Effacer" ></a></td>
             </tr>
             <?php
         }

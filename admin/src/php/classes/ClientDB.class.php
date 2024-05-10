@@ -44,7 +44,7 @@ class ClientDB extends Client
     public function getAllClients()
     {
         try {
-            $query = "select * from client order by nom_cli";
+            $query = "select * from client order by id_client";
             $res = $this->_bd->prepare($query);
             $res->execute();
             $data = $res->fetchAll();

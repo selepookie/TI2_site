@@ -93,5 +93,24 @@ class ProduitDB extends Produit
             print "Echec : " . $e->getMessage();
         }
     }
+
+    public function getAllCategories(){
+        try {
+            $query = "select * from categorie order by id_cat";
+            $res = $this->_bd->prepare($query);
+            $res->execute();
+            $data = $res->fetchAll();
+            $_array = []; // Initialisez toujours $_array comme tableau vide
+            if (!empty($data)) {
+                foreach ($data as $d) {
+                    $_array[] = new Categorie($d);
+                }
+            }
+            return $_array;  // Retournez toujours un tableau, jamais null
+        } catch (PDOException $e) {
+            print "Echec " . $e->getMessage();
+            return []; // En cas d'erreur, retournez également un tableau vide
+        }
+    }
 }
 

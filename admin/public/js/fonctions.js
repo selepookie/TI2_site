@@ -24,31 +24,41 @@ $(document).ready(function () {
         })
     });
 
-    $('#texte_bouton_submit').text("Ajouter ou mettre à jour");
+    $('#submit_btn').text("Ajouter ou mettre à jour");
 
     $('#reset').click(function () {
         $('#texte_bouton_submit').text("Ajouter ou mettre à jour");
     });
 
-    $('#texte_bouton_submit').click(function (e) { //e = formulaire
-        e.preventDefault(); //empêcher l'attribut action de form
-        let email = $('#email').val();
-        let nom = $('#nom').val();
-        let prenom = $('#prenom').val();
-        let adresse = $('#adresse').val();
-        let numero = $('#numero').val();
-        let param = 'email=' + email + '&nom=' + nom + '&prenom=' + prenom + '&adresse=' + adresse + '&numero=' + numero;
+    $('#submit_btn').click(function(e) {
+        e.preventDefault();
+
+        let nom_cli = $('#nom_cli').val();
+        let prenom_cli = $('#prenom_cli').val();
+        let tel_cli = $('#tel_cli').val();
+        let adresse_cli = $('#adresse_cli').val();
+
+        console.log(nom_cli);
+
+        let param ='nom_cli='+nom_cli+'&prenom_cli='+prenom_cli+'&tel_cli='+tel_cli+'&adresse_cli='+adresse_cli;
+
         let retour = $.ajax({
             type: 'get',
             dataType: 'json',
             data: param,
             url: './src/php/ajax/ajaxAjoutClient.php',
-            success: function (data) {//data = retour du # php
+            success: function(data) {
                 console.log(data);
+                alert('Client ajouté avec succès !');
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+                alert('Une erreur s\'est produite lors de l\'ajout du client.');
             }
-        })
-    })
+        });
+    });
 
+    /*
     $('#email').blur(function () {
         let email = $(this).val();
         console.log("email : " + email);
@@ -73,51 +83,6 @@ $(document).ready(function () {
         })
     })
 
-
-    $('#vie').hide();
-    $('#para1').hide();
-    $('#deuxieme').hide();
-    $('#troisieme').hide();
-    $('#quatrieme').hide();
-    $('#cinquieme').hide();
-    $('#cacher').hide();
-    $('#montrer_image').hide();
-
-    $('h1').click(function () {
-        $('#vie').show();
-        $(this).css('color', 'red');
-    })
-
-    $('#vie').mouseover(function () {
-        $(this).css({
-            'font-weight': 'bold',
-            'font-style': 'italic',
-            'color': '#0044AA'
-        });
-        $(this).mouseout(function () {
-            $('#para1').show();
-        })
-    })
-
-    $('#para1').click(function () {
-        $('#deuxieme').slideDown('slow');
-    })
-
-    $('#para2').click(function () {
-        $('#troisieme').fadeIn('slow');
-    })
-
-    $('#para3').click(function () {
-        $('#quatrieme').fadeIn('fast');
-    })
-
-    $('#quatrieme').click(function () {
-        $('#cinquieme').fadeIn(5000);
-        $('#cacher').show();
-    })
-
-    $('#cacher').click(function () {
-        $('#montrer_image').fadeIn(2000);
-    })
+    */
 
 });
