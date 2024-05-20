@@ -10,20 +10,19 @@ class ClientDB extends Client
         $this->_bd = $cnx;
     }
 
-    public function ajout_client($nom_cli, $prenom_cli, $tel_cli, $adresse_cli)
-    {
-        try {
-            $query = "select ajout_client(:nom_cli,:prenom_cli,:tel_cli,:adresse_cli)";
+    public function ajout_client($prenom,$nom,$telephone,$adresse){
+        try{
+            $query="select ajout_client(:nom,:prenom,:telephone,:adresse)";
             $res = $this->_bd->prepare($query);
-            $res->bindValue(':nom_cli', $nom_cli);
-            $res->bindValue(':prenom_cli', $prenom_cli);
-            $res->bindValue(':tel_cli', $tel_cli);
-            $res->bindValue(':adresse_cli', $adresse_cli);
+            $res->bindValue(':nom',$nom);
+            $res->bindValue(':prenom',$prenom);
+            $res->bindValue(':telephone',$telephone);
+            $res->bindValue(':adresse',$adresse);
             $res->execute();
             $data = $res->fetch();
             return $data;
-        } catch (PDOException $e) {
-            print "Echec " . $e->getMessage();
+        }catch(PDOException $e){
+            print "Echec ".$e->getMessage();
         }
     }
 
@@ -61,31 +60,40 @@ class ClientDB extends Client
         }
     }
 
+    public function getClientById($id)
+    {
+        try {
+            $query = "SELECT * FROM client WHERE id_client = :id";
+            $res = $this->_bd->prepare($query);
+            $res->bindValue(':id', $id);
+            $res->execute();
+            return $res->fetchAll(PDO::FETCH_OBJ);
+        } catch (PDOException $e) {
+            print "Echec " . $e->getMessage();
+        }
+
+    }
+
     public function updateClient($id, $champ, $valeur)
     {
-        //$query="select update_client(:id,:champ,:valeur)";
-        $query = "update client set $champ='$valeur' where id_client=$id";
+        $query = "UPDATE client SET $champ = :valeur WHERE id_client = :id";
         try {
-            //$this->_bd->beginTransaction();
             $res = $this->_bd->prepare($query);
-            //$res->bindValue(':id',$id);
-            //$res->bindValue(':champ',$champ);
-            //$res->bindValue(':valeur',$valeur);
+            $res->bindValue(':id', $id, PDO::PARAM_INT);
+            $res->bindValue(':valeur', $valeur, PDO::PARAM_STR);
             $res->execute();
-            //$res->_bd->commit();
         } catch (PDOException $e) {
-            //$res->_bd->rollback();
             print "Echec : " . $e->getMessage();
         }
     }
 
-    public function deleteClient($id)
+    public function deleteClient($id_client)
     {
-        $query = "select delete_client(:id)";
+        $query = "select delete_client(:id_client)";
         try {
             $this->_bd->beginTransaction();
             $res = $this->_bd->prepare($query);
-            $res->bindValue(':id', $id);
+            $res->bindValue(':id_client', $id_client);
             $res->execute();
             $res->_bd->commit();
         } catch (PDOException $e) {

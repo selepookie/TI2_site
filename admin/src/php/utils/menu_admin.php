@@ -13,7 +13,7 @@
                     <a class="nav-link active" aria-current="page" href="index_.php?page=gestion_clients.php">Gestion clients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index_.php?page=ajout_client.php">Ajout des clients</a>
+                    <a class="nav-link active" aria-current="page" href="index_.php?page=gestion_produits.php">Gestion des produits</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index_.php?page=delete_client.php">Suppression des clients</a>

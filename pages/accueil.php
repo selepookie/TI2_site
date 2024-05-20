@@ -5,12 +5,4 @@
 <div class="titre"><h2>Bienvenue chez MU Pro.</h2></div>
 <h4>Vous trouverez des produits de beauté en tout genre.</h4>
 
-    <style>
-        body {
-            background-image: url('https://i.pinimg.com/736x/4f/9f/bf/4f9fbf0128a80ebab6ef844439599793.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
-
 </div>

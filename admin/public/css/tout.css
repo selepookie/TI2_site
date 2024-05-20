@@ -1,20 +1,8 @@
-body {
-    color:pink;
-    position: absolute;
-}
 
-.carousel-item img {
-    max-height: 450px; /* Définissez la hauteur maximale des images */
-    width: 100px; /* Pour maintenir le rapport hauteur/largeur et éviter la distorsion */
-}
 
 .titre{
     color: hotpink;
     font-family: "Segoe Fluent Icons";
     margin-left: 40%;
-}
-
-.touttout{
-    background: beige;
 }
 
