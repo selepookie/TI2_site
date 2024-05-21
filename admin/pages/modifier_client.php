@@ -1,6 +1,13 @@
 <?php
-$clientDB = new ClientDB($cnx);
-$client = $clientDB->getClientById($_GET['id_client']);
+if (isset($_GET['id_client'])) {
+    $clientDB = new ClientDB($cnx);
+    $client = $clientDB->getClientById($_GET['id_client']);
+    if (!$client) {
+        exit('Aucun client trouvé avec cet identifiant');
+    }
+} else {
+    exit('Aucun identifiant de client na été fourni');
+}
 ?>
 
 <h2>Modification Clients</h2>

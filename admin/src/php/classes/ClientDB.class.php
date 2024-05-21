@@ -82,8 +82,9 @@ class ClientDB extends Client
             $res->bindValue(':id', $id, PDO::PARAM_INT);
             $res->bindValue(':valeur', $valeur, PDO::PARAM_STR);
             $res->execute();
+            echo "Query executed successfully: $query<br>";
         } catch (PDOException $e) {
-            print "Echec : " . $e->getMessage();
+            echo "Echec : " . $e->getMessage();
         }
     }
 
