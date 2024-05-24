@@ -24,7 +24,7 @@ require './src/php/utils/liste_includes.php';
             include './src/php/utils/menu_admin.php';
         }
         ?>
-        <a href="index_.php?page=disconnect.php">Log out ADMIN</a>
+        <a href="index_.php?page=disconnect.php">Se déconnecter</a>
     </nav>
     <div id="contenu">
         <?php

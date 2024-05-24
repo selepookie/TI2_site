@@ -15,17 +15,30 @@ $CategorieDB = $produitDB->getAllCategories(); // Assurez-vous que cette méthod
     <title>Nos produits</title>
 </head>
 <style>
-    body {
-        background-image: url('https://i.pinimg.com/736x/4f/9f/bf/4f9fbf0128a80ebab6ef844439599793.jpg');
-        background-size: cover;
-        background-position: center;
-    }
     .card-body img {
         width: 100%;
         height: auto;
     }
+
     .description {
         display: none;
+    }
+
+    .product-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .product-header .product-info {
+        flex-grow: 1;
+    }
+
+    .product-header .coeur {
+        width: 50px;
+        height: auto;
+        cursor: pointer;
+        margin-left: 10px;
     }
 </style>
 <body>
@@ -50,8 +63,15 @@ $CategorieDB = $produitDB->getAllCategories(); // Assurez-vous que cette méthod
                 <div class="col" data-categorie="<?= $produit->id_cat; ?>">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <p class="card-text"><?= $produit->nom_prod; ?></p>
-                            <p class="card-text"><strong><?= $produit->nom_marque; ?></strong></p>
+                            <div class="product-header">
+                                <div class="product-info">
+                                    <p class="card-text"><?= $produit->nom_prod; ?></p>
+                                    <p class="card-text"><strong><?= $produit->nom_marque; ?></strong></p>
+                                </div>
+                                <div class="coeur">
+                                    <img src="./admin/public/images/heart.png" alt="wishlist">
+                                </div>
+                            </div>
                             <img src="<?= $produit->image ?>" alt="image">
                             <p class="card-text"><?= $produit->prix; ?> €</p>
                             <button class="btn btn-light toggle-description">Description</button>

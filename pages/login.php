@@ -20,6 +20,7 @@ if (isset($_POST['submit_login'])) {
 
 <form method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
     <br>
+    <h5>Connexion Administrateur</h5><br>
     <div class="input-group flex-nowrap">
         <span class="input-group-text" id="objet_login"><i class="bi bi-person-circle"></i></span>
         <input type="text" class="form-control" placeholder="Login" name="login" id="login">
@@ -30,5 +31,5 @@ if (isset($_POST['submit_login'])) {
         <input type="password" class="form-control" placeholder="Password" name="password" id="password">
     </div>
     <br>
-    <button type="submit" class="btn btn-outline-success" name="submit_login">Connexion</button>
+    <button type="submit" class="btn btn-outline-dark" name="submit_login">Connexion</button>
 </form>
