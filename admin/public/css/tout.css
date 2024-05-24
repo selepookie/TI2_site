@@ -2,3 +2,13 @@
     background-color: #f5dee8;
 
 }
+.titremu{
+    font-size: 30px;
+    color: #d95b9d;
+}
+.imgpookie img {
+    width: 50%;
+    max-width: 50%;
+    height: auto;
+    margin-left: 270px;
+}

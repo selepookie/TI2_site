@@ -112,5 +112,19 @@ class ProduitDB extends Produit
             return []; // En cas d'erreur, retournez également un tableau vide
         }
     }
+
+    public function getProduitByMarque($id_marque)
+    {
+        try {
+            $query = "select * from produit where id_marque = :id_marque";
+            $res = $this->_bd->prepare($query);
+            $res->bindValue(':id_marque', $id_marque);
+            $res->execute();
+            $data = $res->fetch();
+            return $data;
+        } catch (PDOException $e) {
+            print "Echec " . $e->getMessage();
+        }
+    }
 }
 

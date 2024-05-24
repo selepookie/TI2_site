@@ -20,3 +20,26 @@ if (isset($_GET['id_client'])) {
 <p>Souhaitez-vous supprimer ce client ?</p>
 <button type="button" id="bouton_suppr" class="btn btn-primary">Supprimer</button>
 <a href="index_.php?page=gestion_clients.php" class="btn btn-primary">Annuler</a>
+
+<script>
+
+    document.getElementById('bouton_suppr').addEventListener('click',function () {
+        let id_client = $('#id_client').val();
+        console.log(id_client)
+        let param = 'id_client=' + id_client;
+        console.log("param : ", param);
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            data: param,
+            url: './src/php/ajax/ajaxDeleteClient.php',
+            success: function (data) {
+                console.log(data);
+                alert("Le client " + id_client + " a bien été supprimé.");
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+    });
+</script>
