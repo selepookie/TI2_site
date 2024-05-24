@@ -90,4 +90,32 @@ $(document).ready(function () {
         })
     });
     */
+
+    $('#bouton_suppr').click(function (e) {
+        e.preventDefault();
+        let id_client = $('#id_client').val();
+
+        let param = {
+            id_client: id_client
+        };
+
+        console.log("param : ", param);
+
+        $.ajax({
+            url: './src/php/ajax/AjaxDeleteClient.php',
+            type: 'GET',
+            dataType: 'json',
+            data: $.param(param),
+            success: function (data) {
+                if (data && data.error) {
+                    console.error('Erreur dans la suppression:', data.error);
+                } else {
+                    alert("Client supprime avec succes.");
+                }
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    });
 });

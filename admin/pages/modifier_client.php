@@ -34,6 +34,6 @@ if (isset($_GET['id_client'])) {
         <button type="submit" id="texte_bouton_modif" class="btn btn-primary">
             Modifier
         </button>
-        <button class="btn btn-primary" type="reset" id="reset">Annuler</button>
+        <a href="index_.php?page=gestion_clients.php" class="btn btn-primary">Annuler</a>
     </form>
 </div>

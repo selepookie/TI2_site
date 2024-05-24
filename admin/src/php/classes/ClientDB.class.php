@@ -96,10 +96,11 @@ class ClientDB extends Client
             $res = $this->_bd->prepare($query);
             $res->bindValue(':id_client', $id_client);
             $res->execute();
-            $res->_bd->commit();
+            $this->_bd->commit();
+            return array('success' => true);
         } catch (PDOException $e) {
-            $res->_bd->rollback();
-            print "Echec : " . $e->getMessage();
+            $this->_bd->rollback();
+            return array('success' => false, 'error' => $e->getMessage());
         }
     }
 }

@@ -36,7 +36,7 @@ if ($nbr == 0) {
                 <td class="editable" data-id="<?= $liste[$i]->id_client; ?>" data-field="tel_cli"><?= $liste[$i]->tel_cli; ?></td>
                 <td class="editable" data-id="<?= $liste[$i]->id_client; ?>" data-field="adresse_cli"><?= $liste[$i]->adresse_cli; ?></td>
                 <td><a class="imgimg" href="index_.php?page=modifier_client.php&id_client=<?= $liste[$i]->id_client; ?>"><img src="public/images/edit.png" alt="Modifier"></a></td>
-                <td><a class="imgimg" href="index_.php?page=delete_client.php&id=<?= $liste[$i]->id_client;?>"><img src="public/images/remove.png" alt="Effacer" ></a></td>
+                <td><a class="imgimg" href="index_.php?page=delete_client.php&id_client=<?= $liste[$i]->id_client;?>"><img src="public/images/remove.png" alt="Effacer" ></a></td>
             </tr>
             <?php
         }
