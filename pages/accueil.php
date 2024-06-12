@@ -12,7 +12,7 @@ margin-left: 270px;
 }
 </style>
 <div class="titremu">
-    <h2>Bienvenue sur mon super site de make-up :))</h2>
+    <h2>Bienvenue sur mon site de make-up :))</h2>
 </div>
 
 <div class="imgpookie">

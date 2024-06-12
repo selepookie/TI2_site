@@ -1,7 +1,7 @@
 <h2>Liste des produits en vente</h2>
 
 <?php
-// Récupération des clients et affichage dans une table Bootstrap
+
 $produits = new ProduitDB($cnx);
 $liste = $produits->getAllProduits();
 $nbr = count($liste);
@@ -21,11 +21,11 @@ if ($nbr == 0) {
             <th scope="col">Id Marque</th>
             <th scope="col">Nom Marque</th>
             <th scope="col">Stock</th>
+            <th scope="col">Likes</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        // Utilisation d'une boucle pour afficher chaque client dans une ligne du tableau
         for ($i = 0; $i < $nbr; $i++) {
             ?>
             <tr id="row<?= $liste[$i]->id_produit; ?>">
@@ -37,6 +37,7 @@ if ($nbr == 0) {
                 <td contenteditable="true" class="editable" data-id="<?= $liste[$i]->id_produit; ?>" data-field="id_marque"><?= $liste[$i]->id_marque; ?></td>
                 <td contenteditable="true" class="editable" data-id="<?= $liste[$i]->id_produit; ?>" data-field="nom_marque"><?= $liste[$i]->nom_marque; ?></td>
                 <td contenteditable="true" class="editable" data-id="<?= $liste[$i]->id_produit; ?>" data-field="stock"><?= $liste[$i]->stock; ?></td>
+                <td contenteditable="true" class="editable" data-id="<?= $liste[$i]->id_produit; ?>" data-field="likes"><?= $liste[$i]->likes; ?></td>
             </tr>
             <?php
         }

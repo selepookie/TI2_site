@@ -79,6 +79,18 @@ class ProduitDB extends Produit
         }
     }
 
+    public function likeProduit($id){
+        $query = "update produit set likes = likes + 1 where id_produit = :id ";
+        try{
+            $this->_bd->beginTransaction();
+            $res = $this->_bd->prepare($query);
+            $res->bindValue(':id', $id);
+            $res->execute();
+        }catch(PDOException $e){
+            print "Echec : " . $e->getMessage();
+        }
+    }
+
     public function deleteProduit($id)
     {
         $query = "select delete_produit(:id)";
@@ -116,11 +128,11 @@ class ProduitDB extends Produit
     public function getProduitByMarque($id_marque)
     {
         try {
-            $query = "select * from produit where id_marque = :id_marque";
+            $query = "SELECT * FROM produit WHERE id_marque = :id_marque";
             $res = $this->_bd->prepare($query);
             $res->bindValue(':id_marque', $id_marque);
             $res->execute();
-            $data = $res->fetch();
+            $data = $res->fetchAll();
             return $data;
         } catch (PDOException $e) {
             print "Echec " . $e->getMessage();

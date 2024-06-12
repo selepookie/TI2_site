@@ -20,8 +20,10 @@ $nbrMarques = count($listeMarques);
                 <div class="col" data-categorie="<?= $marque->id_marque; ?>">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <button><img src="<?= $marque->image ?>" alt="<?= $marque->nom; ?>" class="marque-image" data-marque="<?= $marque->id_marque; ?>"></button>
+                            <img src="<?= $marque->image ?>" alt="<?= $marque->nom; ?>" class="marque-image" data-marque="<?= $marque->id_marque; ?>">
                         </div>
+                        <button class="btn btn-light toggle-description">Description</button>
+                        <p class="description"><?= $marque->descr_marque; ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -30,34 +32,14 @@ $nbrMarques = count($listeMarques);
 </div>
 
 <script>
-
-    // Ajoute un gestionnaire d'événements de clic à chaque image de marque
-    document.addEventListener('DOMContentLoaded', function() {
-        var marqueImages = document.querySelectorAll('.marque-image');
-        marqueImages.forEach(function(image) {
-            image.addEventListener('click', function() {
-                var id_marque = this.getAttribute('data-marque');
-                loadProductsByMarque(id_marque);
-            });
+    document.querySelectorAll('.toggle-description').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const description = btn.nextElementSibling;
+            if (description.style.display === "none" || description.style.display === "") {
+                description.style.display = "block";
+            } else {
+                description.style.display = "none";
+            }
         });
     });
-
-    // Fonction pour charger les produits associés à une marque via AJAX
-    function loadProductsByMarque(id_marque) {
-        // Envoie de la requête AJAX
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    // Mettre à jour le contenu des produits dans le conteneur
-                    document.getElementById('products-container').innerHTML = xhr.responseText;
-                } else {
-                    // Gérer les erreurs éventuelles
-                    console.error('Erreur lors de la requête : ' + xhr.status);
-                }
-            }
-        };
-        xhr.open('GET', 'admin/src/php/ajax/ajaxProdMarque.php?id_marque=' + id_marque, true);
-        xhr.send();
-    }
 </script>

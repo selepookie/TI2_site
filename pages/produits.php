@@ -5,15 +5,10 @@ $listeProduits = is_array($listeProduits) ? $listeProduits : [];
 $nbrProduits = count($listeProduits);
 
 // Charger les catégories
-$CategorieDB = $produitDB->getAllCategories(); // Assurez-vous que cette méthode existe et récupère toutes les catégories
+$CategorieDB = $produitDB->getAllCategories();
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Nos produits</title>
-</head>
 <style>
     .card-body img {
         width: 100%;
@@ -41,7 +36,7 @@ $CategorieDB = $produitDB->getAllCategories(); // Assurez-vous que cette méthod
         margin-left: 10px;
     }
 </style>
-<body>
+
 <br>
 <div class="container">
     <div class="row">
@@ -69,7 +64,7 @@ $CategorieDB = $produitDB->getAllCategories(); // Assurez-vous que cette méthod
                                     <p class="card-text"><strong><?= $produit->nom_marque; ?></strong></p>
                                 </div>
                                 <div class="coeur">
-                                    <img src="./admin/public/images/heart.png" alt="wishlist">
+                                    <img src="./admin/public/images/heart.png" alt="wishlist" id="heart-btn" data-id="<?= $produit->id_prod; ?>">
                                 </div>
                             </div>
                             <img src="<?= $produit->image ?>" alt="image">
@@ -106,6 +101,6 @@ $CategorieDB = $produitDB->getAllCategories(); // Assurez-vous que cette méthod
             }
         });
     });
+
+
 </script>
-</body>
-</html>

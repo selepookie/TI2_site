@@ -65,29 +65,23 @@ $(document).ready(function () {
         });
     });
 
-    /*
-    $('#email').blur(function () {
-        let email = $(this).val();
-        console.log("email : " + email);
-        let parametre = 'email=' + email;
+
+    $(document).on('click', '.heart-btn', function(){
+        let id_prod = $(this).data('id');
+        var param = 'id_produit=' + id_prod;
+        console.log(param);
         $.ajax({
-            type: 'get',
+            type: 'POST',
             dataType: 'json',
-            data: parametre,
-            url: './src/php/ajax/ajaxRechercheClient.php',
-            success: function (data) {//data = retour du # php
+            data: param,
+            url: './src/php/ajax/update_wishlist.php',
+            success: function (data) {
                 console.log(data);
-                $('#nom').val(data[0].nom_client);
-                $('#prenom').val(data[0].prenom_client);
-                $('#adresse').val(data[0].adresse);
-                $('#numero').val(data[0].numero);
-                $('#texte_bouton_submit').text("Mettre à jour");
-                let nom2 = $('#nom').val();
-                if (nom2 === '') {
-                    $('#texte_bouton_submit').text("Ajouter");
-                }
+            },
+            error: function (xhr, status, error) {
+                console.error(xhr.responseText);
             }
-        })
+        });
     });
-    */
+
 });
